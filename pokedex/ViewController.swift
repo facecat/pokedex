@@ -27,6 +27,28 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         pokemon.append(p2)
         pokemon.append(p3)
         collectionview.reloadData()
+        
+        loadCsvFile()
+    }
+    
+    func loadCsvFile() {
+        if let path = NSBundle.mainBundle().pathForResource("pokemon", ofType: "csv") {
+            do {
+                let csv = try CSV(contentsOfURL: path)
+                print(csv.delimiter)
+                //from here ....
+                let row = csv.rows
+                for i in 1...row.count {
+                    let name = row[i]["identifier"]!
+                    let id = row[i]["id"]!
+                    let poke = Pokemon(name: name, pokedexId: id)
+                    pokemon.append(poke)
+                }
+            } catch let err as NSError {
+                print(err.debugDescription)
+            }
+        }
+       
     }
 
 
