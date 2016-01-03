@@ -451,17 +451,19 @@
                     </view>
                     <connections>
                         <outlet property="attackLbl" destination="Zr7-zw-164" id="Uow-Py-3QI"/>
-                        <outlet property="defenceLbl" destination="4Da-GK-0hd" id="gdS-WO-vaY"/>
+                        <outlet property="defenseLbl" destination="4Da-GK-0hd" id="vdW-Gi-gAJ"/>
                         <outlet property="descLbl" destination="02b-Uc-nd9" id="AWY-8B-IjD"/>
                         <outlet property="evoLbl" destination="JXF-xs-kp0" id="THX-cf-Mmu"/>
                         <outlet property="evoNextImg" destination="Zwx-p4-FbR" id="Qmf-oV-giq"/>
                         <outlet property="evoPresentImg" destination="gKA-9F-Vxy" id="h2L-a7-TLh"/>
+                        <outlet property="heightLbl" destination="gds-tE-mhY" id="O4s-pI-zh8"/>
                         <outlet property="hpLbl" destination="fw1-v5-trI" id="gRb-po-r4M"/>
                         <outlet property="mainImg" destination="CLh-N5-ca4" id="zrj-Wt-wnp"/>
                         <outlet property="nameLbl" destination="MyJ-cb-XCh" id="4Em-hh-icv"/>
                         <outlet property="pokeIdLbl" destination="ztX-Eb-U0t" id="wkA-xg-MdE"/>
                         <outlet property="speedLbl" destination="tn3-kE-0dt" id="alx-lO-dfi"/>
                         <outlet property="typeLbl" destination="cSI-Mt-XaA" id="zj1-1G-Pc7"/>
+                        <outlet property="weightLbl" destination="Vi6-Nj-6Wh" id="DQx-oS-KFY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ZJ-ca-6ao" userLabel="First Responder" sceneMemberID="firstResponder"/>
