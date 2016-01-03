@@ -5,6 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="pokemon.ttf">
+            <string>PokemonSolidNormal</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -21,16 +26,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yt2-c8-Dau">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aH5-VS-gbJ">
-                                        <rect key="frame" x="174" y="0.0" width="253" height="55"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="Q7p-lX-6Zd"/>
-                                            <constraint firstAttribute="width" constant="253" id="U0B-uI-Joc"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKo-uB-lrp">
                                         <rect key="frame" x="556" y="11" width="36" height="36"/>
                                         <constraints>
@@ -38,7 +33,20 @@
                                             <constraint firstAttribute="width" constant="36" id="kgP-Qo-xfA"/>
                                         </constraints>
                                         <state key="normal" image="music"/>
+                                        <connections>
+                                            <action selector="musicBtnPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="0ww-va-I7g"/>
+                                        </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aH5-VS-gbJ">
+                                        <rect key="frame" x="174" y="0.0" width="253" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="Q7p-lX-6Zd"/>
+                                            <constraint firstAttribute="width" constant="253" id="U0B-uI-Joc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="35"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>

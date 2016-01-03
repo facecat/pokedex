@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     var pokemon = [Pokemon]()
+    
+    var avplayer: AVAudioPlayer!
     
     @IBOutlet weak var collectionview: UICollectionView!
     
@@ -21,6 +24,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionview.delegate = self
         
         loadCsvFile()
+        setupBackgroundMusic()
+    }
+    
+    func setupBackgroundMusic() {
+        if let url = NSBundle.mainBundle().URLForResource("music", withExtension: "mp3") {
+            do {
+                avplayer = try AVAudioPlayer(contentsOfURL: url)
+                
+                avplayer.prepareToPlay()
+                avplayer.play()
+            } catch let err as NSError {
+                print(err.debugDescription)
+            }
+        }
     }
     
     func loadCsvFile() {
@@ -69,6 +86,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(106, 106)
     }
+    
+    
+    //MARK: Action
+    @IBAction func musicBtnPressed() {
+        if avplayer.playing {
+            avplayer.stop()
+        } else {
+            avplayer.play()
+        }
+    }
+    
+    
+    
+    
 }
 
 
