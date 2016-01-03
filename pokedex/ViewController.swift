@@ -117,7 +117,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "PokeDetailVC" {
-            //configure 2nd VC
+
+            if let controller = segue.destinationViewController as? PokeDetailVC {
+                if let poke = sender as? Pokemon {
+                    controller.detiPokemon = poke
+                }
+            }
         }
     }
     
