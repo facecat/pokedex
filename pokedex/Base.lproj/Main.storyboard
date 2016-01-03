@@ -148,10 +148,10 @@
             </objects>
             <point key="canvasLocation" x="353" y="333"/>
         </scene>
-        <!--View Controller-->
+        <!--Poke DetailVC-->
         <scene sceneID="Ef8-hc-5UD">
             <objects>
-                <viewController id="Gn3-lU-hkV" sceneMemberID="viewController">
+                <viewController id="Gn3-lU-hkV" customClass="PokeDetailVC" customModule="pokedex" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fB1-su-qVJ"/>
                         <viewControllerLayoutGuide type="bottom" id="KqN-5e-rnG"/>
