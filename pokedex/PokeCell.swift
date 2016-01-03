@@ -19,7 +19,7 @@ class PokeCell: UICollectionViewCell {
         _poke = poke
         
         mainImg.image = _poke.pokemonImg
-        nameLbl.text = _poke.name
+        nameLbl.text = _poke.name.capitalizedString
     }
     
     required init?(coder aDecoder: NSCoder) {

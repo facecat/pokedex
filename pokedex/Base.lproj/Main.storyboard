@@ -140,6 +140,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionview" destination="z8n-lY-EYi" id="if9-aI-LpC"/>
+                        <outlet property="searchBar" destination="rVH-zD-RmJ" id="2o1-1R-kow"/>
                         <segue destination="Gn3-lU-hkV" kind="show" identifier="PokeDetailVC" id="HLr-EN-Gnl"/>
                     </connections>
                 </viewController>
