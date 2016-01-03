@@ -20,14 +20,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionview.dataSource = self
         collectionview.delegate = self
         
-        let p1 = Pokemon(name: "Who Am I?", pokedexId: "200")
-        let p2 = Pokemon(name: "I am NOBODY", pokedexId: "300")
-        let p3 = Pokemon(name: "OH SHOOT", pokedexId: "400")
-        pokemon.append(p1)
-        pokemon.append(p2)
-        pokemon.append(p3)
-        collectionview.reloadData()
-        
         loadCsvFile()
     }
     
@@ -35,10 +27,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if let path = NSBundle.mainBundle().pathForResource("pokemon", ofType: "csv") {
             do {
                 let csv = try CSV(contentsOfURL: path)
-                print(csv.delimiter)
-                //from here ....
-                let row = csv.rows
-                for i in 1...row.count {
+                
+                let row = csv.rows      // row is an NEW array indices from 0 to cow.count-1.
+                for i in 0..<row.count {
                     let name = row[i]["identifier"]!
                     let id = row[i]["id"]!
                     let poke = Pokemon(name: name, pokedexId: id)
@@ -48,7 +39,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 print(err.debugDescription)
             }
         }
-       
     }
 
 
