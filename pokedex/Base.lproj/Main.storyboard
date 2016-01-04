@@ -367,7 +367,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zwx-p4-FbR">
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zwx-p4-FbR">
                                         <rect key="frame" x="110" y="0.0" width="0.0" height="110"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="HgP-lx-UpG"/>
