@@ -22,6 +22,11 @@ class Pokemon {
     private var _pokeUrl: String!
     private var _weight: String!
     private var _height: String!
+    private var _description: String!
+    
+    var description: String {
+        return _description
+    }
     
     var height: String {
         return _height
@@ -113,14 +118,36 @@ class Pokemon {
                     }
                     print(self._type)
                     
-                    //description not finished
-                    
-                    completed()
+                    //description
+                    if let descArray = dict["descriptions"] as? [Dictionary<String, String>] where descArray.count > 0 {
+                        if let descUri = descArray[0]["resource_uri"] {
+
+                            if let url = NSURL(string: "\(URL_BASE)\(descUri)") {
+                                
+                                Alamofire.request(.GET, url).responseJSON { (response: Response<AnyObject, NSError>) -> Void in
+                                    if let descDict = response.result.value as? Dictionary<String, AnyObject> {
+                                        if let pokemonDesc = descDict["description"] as? String {
+                                            self._description = pokemonDesc
+                                            print(pokemonDesc)
+                                        }
+                                    }
+                                    completed()
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
     }
+    
+    
+    
+    
+    
 }
+
+
 
 
 

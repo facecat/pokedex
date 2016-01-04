@@ -54,7 +54,7 @@ class PokeDetailVC: UIViewController {
             self.weightLbl.text = self.detiPokemon.weight
             self.heightLbl.text = self.detiPokemon.height
             self.typeLbl.text = self.detiPokemon.type
-//            self.descLbl.text = self.detiPokemon.description
+            self.descLbl.text = self.detiPokemon.description
         }
     }
 
