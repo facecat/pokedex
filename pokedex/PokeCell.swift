@@ -19,6 +19,7 @@ class PokeCell: UICollectionViewCell {
         _poke = poke
         
         mainImg.image = UIImage(named: "\(_poke.pokedexId)")
+//        print("\(_poke.pokedexId)")
         nameLbl.text = _poke.name.capitalizedString
     }
     

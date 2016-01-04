@@ -55,6 +55,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 for i in 0..<row.count {
                     let name = row[i]["identifier"]!
                     let id = row[i]["id"]!
+                    print("\(name)\(id)")
                     let poke = Pokemon(name: name, pokedexId: id)
                     pokemon.append(poke)
                 }
@@ -90,6 +91,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
         
             cell.configureCell(poke)
+//            print("configureCell")
+//            print(poke.name)
+//            print(poke.pokedexId)
             return cell
         } else {
             return UICollectionViewCell()
@@ -120,7 +124,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
             if let controller = segue.destinationViewController as? PokeDetailVC {
                 if let poke = sender as? Pokemon {
-                    controller.detiPokemon = poke
+                    controller.pokemon = poke
                 }
             }
         }
@@ -139,7 +143,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             let lower = searchBar.text!.lowercaseString
             searchPokemon = pokemon.filter({ $0.name.rangeOfString(lower) != nil })
-            print("\(searchPokemon.count)")
+//            print("\(searchPokemon.count)")
         }
         
         collectionview.reloadData()

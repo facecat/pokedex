@@ -10,7 +10,7 @@ import UIKit
 
 class PokeDetailVC: UIViewController {
     
-    var detiPokemon: Pokemon!
+    var pokemon: Pokemon!
     
     //MARK: Outlet
     @IBOutlet weak var nameLbl: UILabel!
@@ -37,24 +37,41 @@ class PokeDetailVC: UIViewController {
     }
 
     func setLocalValue() {
-        nameLbl.text = detiPokemon.name.capitalizedString
-        pokeIdLbl.text = detiPokemon.pokedexId
-        mainImg.image = UIImage(named: "\(detiPokemon.pokedexId)")
+        nameLbl.text = pokemon.name.capitalizedString
+        pokeIdLbl.text = pokemon.pokedexId
+        mainImg.image = UIImage(named: "\(pokemon.pokedexId)")
         evoPresentImg.image = mainImg.image
     }
     
     func downloadDetialValue() {
         
-        detiPokemon.downloadPokemonDetail { () -> () in
+        pokemon.downloadPokemonDetail { () -> () in
             
-            self.attackLbl.text = self.detiPokemon.attack
-            self.defenseLbl.text = self.detiPokemon.defense
-            self.hpLbl.text = self.detiPokemon.hp
-            self.speedLbl.text = self.detiPokemon.speed
-            self.weightLbl.text = self.detiPokemon.weight
-            self.heightLbl.text = self.detiPokemon.height
-            self.typeLbl.text = self.detiPokemon.type
-            self.descLbl.text = self.detiPokemon.description
+            self.attackLbl.text = self.pokemon.attack
+            self.defenseLbl.text = self.pokemon.defense
+            self.hpLbl.text = self.pokemon.hp
+            self.speedLbl.text = self.pokemon.speed
+            self.weightLbl.text = self.pokemon.weight
+            self.heightLbl.text = self.pokemon.height
+            self.typeLbl.text = self.pokemon.type
+            self.descLbl.text = self.pokemon.description
+            
+            
+            if self.pokemon.evoTxt == ""{
+                self.evoLbl.text = "No Evolution"
+                self.evoNextImg.hidden = true
+            } else {
+                self.evoNextImg.hidden = false
+                self.evoNextImg.image = UIImage(named: self.pokemon.evoId)
+                
+                var txt = "Next Evolution"
+                
+                if self.pokemon.evoLvl != "" {
+                    txt += " - LVL  \(self.pokemon.evoLvl)"
+                }
+                self.evoLbl.text = txt
+            }
+            
         }
     }
 

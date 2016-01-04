@@ -23,37 +23,85 @@ class Pokemon {
     private var _weight: String!
     private var _height: String!
     private var _description: String!
+    private var _evoId: String!
+    private var _evoLvl: String!
+    private var _evoTxt: String!
+    
+    var evoTxt: String {
+//        if _evoTxt == nil {
+//            return ""
+//        }
+        return _evoTxt == nil ? "" : _evoTxt
+    }
+    
+    var evoLvl: String {
+//        if _evoLvl == nil {
+//            return ""
+//        }
+        return _evoLvl == nil ? "" : _evoLvl
+    }
+    
+    var evoId: String {
+//        if _evoId == nil {
+//            return ""
+//        }
+        return _evoId == nil ? "" : _evoId
+    }
     
     var description: String {
-        return _description
+//        if _description == nil {
+//            return ""
+//        }
+        return _description == nil ? "" : _description
     }
     
     var height: String {
-        return _height
+//        if _height == nil {
+//            return ""
+//        }
+        return _height == nil ?  "" : _height
     }
     
     var weight: String {
-        return _weight
+//        if _weight == nil {
+//            return ""
+//        }
+        return _weight == nil ? "" : _weight
     }
     
     var defense: String {
-        return _defense
+//        if _defense == nil {
+//            return ""
+//        }
+        return _defense == nil ? "" : _defense
     }
     
     var attack: String {
-        return _attack
+//        if _attack == nil {
+//            return ""
+//        }
+        return _attack == nil ? "" : _attack
     }
     
     var speed: String {
-        return _speed
+//        if _speed == nil {
+//            return ""
+//        }
+        return _speed == nil ? "" : _speed
     }
     
     var hp: String {
-        return _hp
+//        if _hp == nil {
+//            return ""
+//        }
+        return _hp == nil ? "" : _hp
     }
     
     var type: String {
-        return _type
+//        if _type == nil {
+//            return ""
+//        }
+        return _type == nil ? "" : _type
     }
     
     var name: String {
@@ -100,12 +148,12 @@ class Pokemon {
                         self._height = height
                     }
                     //debuging
-                    print(self._height)
-                    print(self._defense)
-                    print(self._attack)
-                    print(self._hp)
-                    print(self._speed)
-                    print(self._weight)
+//                    print(self._height)
+//                    print(self._defense)
+//                    print(self._attack)
+//                    print(self._hp)
+//                    print(self._speed)
+//                    print(self._weight)
                     
                     if let typeArray = dict["types"] as? [Dictionary<String, String>] where typeArray.count > 0{
                         var type = typeArray[0]["name"]!
@@ -116,7 +164,28 @@ class Pokemon {
                         }
                         self._type = type
                     }
-                    print(self._type)
+//                    print(self._type)
+                    
+                    //download evoImg
+                    if let evoArray = dict["evolutions"] as? [Dictionary<String, AnyObject>] where evoArray.count > 0{
+                        
+                        if let to = evoArray[0]["to"] as? String {
+                            if to.rangeOfString("mega") == nil {
+                                
+                                self._evoTxt = to
+                                
+                                if let evoUri = evoArray[0]["resource_uri"] as? String {
+                                    let evoStr = evoUri.stringByReplacingOccurrencesOfString("/api/v1/pokemon/", withString: "")
+                                    let evoId = evoStr.stringByReplacingOccurrencesOfString("/", withString: "")
+                                    self._evoId = evoId
+                                }
+                                
+                                if let lvl = evoArray[0]["level"] as? Int {
+                                    self._evoLvl = "\(lvl)"
+                                }
+                            }
+                        }
+                    }
                     
                     //description
                     if let descArray = dict["descriptions"] as? [Dictionary<String, String>] where descArray.count > 0 {
@@ -128,7 +197,7 @@ class Pokemon {
                                     if let descDict = response.result.value as? Dictionary<String, AnyObject> {
                                         if let pokemonDesc = descDict["description"] as? String {
                                             self._description = pokemonDesc
-                                            print(pokemonDesc)
+//                                            print(pokemonDesc)
                                         }
                                     }
                                     completed()
